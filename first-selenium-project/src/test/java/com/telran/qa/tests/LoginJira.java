@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginJira {
 WebDriver wd;
-}
+
     @BeforeClass
     public void setUp() {
         wd = new ChromeDriver();
