@@ -21,7 +21,7 @@ WebDriver wd;
     }
 
     @Test
-    public void testLoginJira() throws InterruptedException {
+    public void testLoginJiraNegative() throws InterruptedException {
         Type(By.id("login-form-username"), "krinskaya");
         Type(By.id("login-form-password"), "jhgjhg");
         wd.findElement(By.id("login")).click();
@@ -32,6 +32,17 @@ WebDriver wd;
 
         Assert.assertEquals(errorMessage, "Sorry, your username and password are incorrect - please try again.");
 
+
+        Thread.sleep(3000);
+
+    }
+    @Test
+    public void testLoginJira() throws InterruptedException {
+        Type(By.id("login-form-username"), "krinskaya");
+        Type(By.id("login-form-password"), "3043872");
+        wd.findElement(By.id("login")).click();
+
+        Assert.assertTrue(isElementPresent(By.id("usernameerror")));
 
         Thread.sleep(3000);
 
