@@ -3,10 +3,8 @@ package com.qa.trello.tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -26,32 +24,34 @@ public class BoardCreationTests {
     }
 
     @Test
-    public void testBoardCreation(){
-        //init login
+    public void testBoardCreation() {
+
         initLogin();
-        //fill login form (Atlassian)
-        fillLoginFormAtlassian("krinskaya@gmail.com", "Krina123");
-        //confirm login
+        fillLoginForm("krinskaya@gmail.com", "Krina123");
         confirmLogin();
 
         //initBoardCreation
+        initBoardCreation();
         //fillBoardForm
+        
         //confirmBoardCreation
         //returnToHomePage
 
+    }
 
-
+    public void initBoardCreation() {
+        click(By.name("add"));
+        click(By.className("_2DBw9GxD3tha0R"));
     }
 
     public void confirmLogin() {
-       // wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("login-submit"));
-       click(By.id("login-submit"));
+        click(By.cssSelector("#login"));
     }
 
-    public void fillLoginFormAtlassian(String userEmail, String password) {
-        type(By.name("user"), userEmail);
-        click(By.cssSelector("#login.button-green"));
-        type(By.cssSelector("input#password"), password);
+    public void fillLoginForm(String userEmail, String password) {
+        click(By.name("user"));
+        type(By.cssSelector("#user"), userEmail);
+        type(By.cssSelector("#password"), password);
     }
 
     public void initLogin() {
@@ -68,7 +68,7 @@ public class BoardCreationTests {
         wait.until(ExpectedConditions.presenceOfElementLocated(locator)).click();
     }
 
-  //  @AfterMethod
+  // @AfterMethod
     public void tearDown(){
         wd.quit();
     }
