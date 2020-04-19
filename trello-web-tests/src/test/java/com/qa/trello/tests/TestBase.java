@@ -35,8 +35,8 @@ public class TestBase {
     public void fillGroupForm(String groupName, String groupDescription) {
         type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), groupName);
         click(By.cssSelector("[id='teamTypeSelect']"));
-        click(By.xpath("//ul//li[1])"));
-        type(By.id("1587038052565-create-team-org-description"), groupDescription);
+        click(By.cssSelector("[data-test-id^='header-create-team-type']"));
+        type(By.cssSelector("[id$='create-team-org-description']"), groupDescription);
     }
 
     public void confirmGroupForm() {
@@ -44,7 +44,7 @@ public class TestBase {
     }
 
     public void initGroupCreation() {
-        click(By.cssSelector("[class='_33CvMKqfH4Yf0j _3SBHBJq0AAxzqg']"));
+        click(By.cssSelector(".icon-add.icon-sm"));
     }
 
     public void confirmLogin() {
@@ -86,10 +86,47 @@ public class TestBase {
 
     public void fillBoardForm(String boardName) {
         type(By.className("_23NUW98LaZfBpQ"), boardName);
+        click(By.cssSelector("button.W6rMLOx8U0MrPx"));
+        click(By.xpath("//li[1]/button[@class='_2jR0BZMM5cBReR']"));
     }
 
     public void initBoardCreation() {
         click(By.name("add"));
         click(By.className("_2DBw9GxD3tha0R"));
+    }
+
+    public void permanentlyDeleteBoard() {
+        click(By.cssSelector(".js-delete"));
+        confirm();
+    }
+
+    public void initOnCloseBoardInMoreMenu() {
+        clickCloseBoardFromMoreMenu();
+        confirm();
+    }
+
+    public void confirm() {
+        click(By.cssSelector(".js-confirm"));
+    }
+
+    public void clickCloseBoardFromMoreMenu() {
+        click(By.cssSelector(".js-close-board"));
+    }
+
+    public void clickMoreButton() {
+        click(By.cssSelector(".js-open-more"));
+    }
+
+    public void openFirstPersonalBoard() {
+        click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+    }
+
+    public void createBoard(){
+        
+    }
+
+    public int getBoardsCount() {
+        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
+
     }
 }

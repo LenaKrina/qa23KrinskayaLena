@@ -1,42 +1,28 @@
 package com.qa.trello.tests;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BoardDeletionTests extends TestBase {
+    public void ensurePreconditions(){
+        if (getBoardsCount() == 0){
+
+        }
+    }
+
     @Test
     public void testBoardDeletion(){
+        int before = getBoardsCount();
         openFirstPersonalBoard();
         clickMoreButton();
         initOnCloseBoardInMoreMenu();
         permanentlyDeleteBoard();
         returnToHomePage();
-    }
+        int after = getBoardsCount();
+        System.out.println("was: " + before + " now: " + after);
 
-    public void permanentlyDeleteBoard() {
-        click(By.cssSelector(".js-delete"));
-        confirm();
-    }
-
-    public void initOnCloseBoardInMoreMenu() {
-        clickCloseBoardFromMoreMenu();
-        confirm();
-    }
-
-    public void confirm() {
-        click(By.cssSelector(".js-confirm"));
-    }
-
-    public void clickCloseBoardFromMoreMenu() {
-        click(By.cssSelector(".js-close-board"));
-    }
-
-    public void clickMoreButton() {
-        click(By.cssSelector(".js-open-more"));
-    }
-
-    public void openFirstPersonalBoard() {
-        click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+        Assert.assertEquals(after, before-1);
     }
 
 
