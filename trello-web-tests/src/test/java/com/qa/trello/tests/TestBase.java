@@ -32,11 +32,18 @@ public class TestBase {
         confirmLogin();
     }
 
-    public void fillGroupForm(String groupName, String groupDescription) {
+    public void fillGroupForm(String groupName, String groupDescription) throws InterruptedException {
         type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), groupName);
         click(By.cssSelector("[id='teamTypeSelect']"));
-        click(By.cssSelector("[data-test-id^='header-create-team-type']"));
+        Thread.sleep(2000);
+        click(By.cssSelector("[data-test-id^=header-create-team-type] li"));
         type(By.cssSelector("[id$='create-team-org-description']"), groupDescription);
+    }
+
+    public void inviteTeamLater() {
+        if(wd.findElements(By.cssSelector("[data-test-id=show-later-button]")).size() != 0){
+            click(By.cssSelector("[data-test-id=show-later-button]"));
+        }
     }
 
     public void confirmGroupForm() {
@@ -69,11 +76,6 @@ public class TestBase {
 
     public void click(By locator) {
         wait.until(ExpectedConditions.presenceOfElementLocated(locator)).click();
-    }
-
-    @AfterMethod
-    public void tearDown(){
-        wd.quit();
     }
 
     public void returnToHomePage() {
@@ -122,11 +124,44 @@ public class TestBase {
     }
 
     public void createBoard(){
-        
+        initBoardCreation();
+        fillBoardForm("new board Lena");
+        confirmBoardForm();
+        returnToHomePage();
+    }
+
+    public void createGroup(){
+        openFirstGroup();
+        clickSettingsButton();
+        permanentlyDeleteGroup();
+        returnToHomePage();
     }
 
     public int getBoardsCount() {
         return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
 
+    }
+
+    //@AfterMethod
+    public void tearDown(){
+        wd.quit();
+    }
+
+
+    public int getGroupsCount() {
+        return wd.findElements(By.cssSelector("[data-test-id='home-team-tab-name']")).size()-1;
+    }
+
+    public void permanentlyDeleteGroup() {
+        click(By.className("quiet-button"));
+        click(By.cssSelector("[type='submit']"));
+    }
+
+    public void openFirstGroup() {
+        click(By.cssSelector("[data-test-id='home-team-tab-name']"));
+    }
+
+    public void clickSettingsButton() {
+        click(By.xpath("//li[@class='pgEbaAFZBA0N5R']//li[4]//a[1]//span[2]"));
     }
 }

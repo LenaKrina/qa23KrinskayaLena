@@ -13,7 +13,9 @@ public class BoardCreationTests extends TestBase {
         confirmBoardForm();
         returnToHomePage();
         int after = getBoardsCount();
-        Assert.assertEquals(after, before-1);
+
+        System.out.println("was: " + before + " now: " + after);
+        Assert.assertEquals(after, before+1);
     }
 
 }
