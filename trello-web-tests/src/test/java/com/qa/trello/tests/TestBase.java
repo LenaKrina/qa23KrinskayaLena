@@ -17,13 +17,17 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp(){
+        init();
+
+    }
+
+    public void init() {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         wait = new WebDriverWait(wd, 20);
         wd.manage().window().maximize();
         wd.navigate().to("https://trello.com/");
         login("krinskaya@gmail.com", "Krina123");
-
     }
 
     public void login(String email, String password) {
@@ -45,6 +49,11 @@ public class TestBase {
             click(By.cssSelector("[data-test-id=show-later-button]"));
         }
     }
+
+    public  boolean isElementPresent(By locator){
+        return wd.findElements(locator).size()>0;
+    }
+
 
     public void confirmGroupForm() {
         click(By.cssSelector("[type='submit']"));
@@ -142,8 +151,12 @@ public class TestBase {
 
     }
 
-    //@AfterMethod
+    @AfterMethod
     public void tearDown(){
+        stop();
+    }
+
+    public void stop() {
         wd.quit();
     }
 
@@ -167,5 +180,10 @@ public class TestBase {
 
     public void renameBoard() {
         type(By.cssSelector("[class='js-board-editing-target board-header-btn-text']"), "Lena's Board");
+    }
+
+    public boolean isOnBoardsPage() {
+        String url = wd.getCurrentUrl();
+        return url.contains("boards");
     }
 }

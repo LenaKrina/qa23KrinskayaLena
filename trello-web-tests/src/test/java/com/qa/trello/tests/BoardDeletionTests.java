@@ -8,6 +8,9 @@ import org.testng.annotations.Test;
 public class BoardDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions(){
+        if(isOnBoardsPage()){
+            click(By.cssSelector("[href$=boards]"));
+        }
         if (getBoardsCount() == 0){
             createBoard();
         }
