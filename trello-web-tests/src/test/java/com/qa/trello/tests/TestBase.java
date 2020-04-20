@@ -164,4 +164,8 @@ public class TestBase {
     public void clickSettingsButton() {
         click(By.xpath("//li[@class='pgEbaAFZBA0N5R']//li[4]//a[1]//span[2]"));
     }
+
+    public void renameBoard() {
+        type(By.cssSelector("[class='js-board-editing-target board-header-btn-text']"), "Lena's Board");
+    }
 }
