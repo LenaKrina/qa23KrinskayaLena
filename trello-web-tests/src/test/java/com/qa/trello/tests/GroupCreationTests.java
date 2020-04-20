@@ -1,6 +1,5 @@
 package com.qa.trello.tests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class GroupCreationTests extends TestBase{
@@ -8,11 +7,11 @@ public class GroupCreationTests extends TestBase{
     @Test
     public void testGroupCreation() throws InterruptedException {
 
-        initGroupCreation();
-        fillGroupForm("new group Lena1", "group description");
-        confirmGroupForm();
-        inviteTeamLater();
-        returnToHomePage();
+        app.initGroupCreation();
+        app.fillGroupForm("new group Lena1", "group description");
+        app.confirmGroupForm();
+        app.inviteTeamLater();
+        app.returnToHomePage();
 
     }
 

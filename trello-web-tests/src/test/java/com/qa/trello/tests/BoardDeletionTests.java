@@ -8,23 +8,23 @@ import org.testng.annotations.Test;
 public class BoardDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions(){
-        if(isOnBoardsPage()){
-            click(By.cssSelector("[href$=boards]"));
+        if(app.isOnBoardsPage()){
+            app.click(By.cssSelector("[href$=boards]"));
         }
-        if (getBoardsCount() == 0){
-            createBoard();
+        if (app.getBoardsCount() == 0){
+            app.createBoard();
         }
     }
 
     @Test
     public void testBoardDeletion(){
-        int before = getBoardsCount();
-        openFirstPersonalBoard();
-        clickMoreButton();
-        initOnCloseBoardInMoreMenu();
-        permanentlyDeleteBoard();
-        returnToHomePage();
-        int after = getBoardsCount();
+        int before = app.getBoardsCount();
+        app.openFirstPersonalBoard();
+        app.clickMoreButton();
+        app.initOnCloseBoardInMoreMenu();
+        app.permanentlyDeleteBoard();
+        app.returnToHomePage();
+        int after = app.getBoardsCount();
         System.out.println("was: " + before + " now: " + after);
 
         Assert.assertEquals(after, before-1);
