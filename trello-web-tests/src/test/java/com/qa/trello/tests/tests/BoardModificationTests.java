@@ -1,4 +1,4 @@
-package com.qa.trello.tests;
+package com.qa.trello.tests.tests;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
@@ -8,18 +8,18 @@ public class BoardModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions(){
         if(app.isOnBoardsPage()){
-            app.click(By.cssSelector("[href$=boards]"));
+            app.getBoard().click(By.cssSelector("[href$=boards]"));
         }
-        if (app.getBoardsCount() == 0){
-            app.createBoard();
+        if (app.getBoard().getBoardsCount() == 0){
+            app.getBoard().createBoard();
         }
     }
 
     @Test
     public void testRenameBoard(){
-        app.openFirstPersonalBoard();
-        app.renameBoard();
-        app.returnToHomePage();
+        app.getBoard().openFirstPersonalBoard();
+        app.getBoard().renameBoard();
+        app.getBoard().returnToHomePage();
 
     }
 
