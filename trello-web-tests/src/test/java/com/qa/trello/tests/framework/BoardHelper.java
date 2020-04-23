@@ -1,6 +1,7 @@
 package com.qa.trello.tests.framework;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class BoardHelper extends HelperBase {
@@ -59,6 +60,7 @@ public class BoardHelper extends HelperBase {
     }
 
     public void renameBoard() {
-        type(By.cssSelector("[class='js-board-editing-target board-header-btn-text']"), "Lena's Board");
+        wd.findElement(By.cssSelector(".js-rename-board")).click();
+        wd.findElement(By.cssSelector("input.js-board-name-input")).sendKeys("Lena's Board" + Keys.ENTER);
     }
 }
