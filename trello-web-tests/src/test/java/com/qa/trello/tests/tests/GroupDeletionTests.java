@@ -1,12 +1,16 @@
 package com.qa.trello.tests.tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class GroupDeletionTests extends TestBase {
     @BeforeMethod
-    public void ensurePreconditions(){
+    public void ensurePreconditions() throws InterruptedException {
+        if (!app.isOnBoardsPage()) {
+            app.getBoard().goToBoardsPageURL("lena01228137");
+        }
         if (app.getTeam().getGroupsCount() == 0){
             app.getTeam().createGroup();
         }

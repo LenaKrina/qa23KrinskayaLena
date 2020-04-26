@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SessionHelper extends HelperBase {
+
     public SessionHelper(WebDriver wd) {
         super(wd);
     }
@@ -16,16 +17,16 @@ public class SessionHelper extends HelperBase {
     }
 
     public void confirmLogin() {
-        click(By.cssSelector("#login"));
+        waitForElementLocatedAndclick(By.cssSelector("#login"), 20);
     }
 
     public void fillLoginForm(String userEmail, String password) {
-        click(By.name("user"));
+        waitForElementLocatedAndclick(By.name("user"), 20);
         type(By.cssSelector("#user"), userEmail);
         type(By.cssSelector("#password"), password);
     }
 
     public void initLogin() {
-        click(By.cssSelector("[href='/login']"));
+        waitForElementLocatedAndclick(By.cssSelector("[href='/login']"), 20);
     }
 }

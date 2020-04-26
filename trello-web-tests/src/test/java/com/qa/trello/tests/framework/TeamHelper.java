@@ -11,25 +11,25 @@ public class TeamHelper extends HelperBase {
     }
 
     public void fillGroupForm(String groupName, String groupDescription) throws InterruptedException {
-        type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), groupName);
-        click(By.cssSelector("[id='teamTypeSelect']"));
+        type(By.cssSelector("[data-test-id=header-create-team-name-input]"), groupName);
+        waitForElementLocatedAndclick(By.cssSelector("[id='teamTypeSelect']"), 20);
         Thread.sleep(2000);
-        click(By.cssSelector("[data-test-id^=header-create-team-type] li"));
+        waitForElementLocatedAndclick(By.cssSelector("[data-test-id^=header-create-team-type] li"), 20);
         type(By.cssSelector("[id$='create-team-org-description']"), groupDescription);
     }
 
     public void inviteTeamLater() {
         if(wd.findElements(By.cssSelector("[data-test-id=show-later-button]")).size() != 0){
-            click(By.cssSelector("[data-test-id=show-later-button]"));
+            waitForElementLocatedAndclick(By.cssSelector("[data-test-id=show-later-button]"), 20);
         }
     }
 
     public void confirmGroupForm() {
-        click(By.cssSelector("[type='submit']"));
+        waitForElementLocatedAndclick(By.cssSelector("[type='submit']"), 20);
     }
 
     public void initGroupCreation() {
-        click(By.cssSelector(".icon-add.icon-sm"));
+        waitForElementLocatedAndclick(By.cssSelector(".icon-add.icon-sm"), 20);
     }
 
     public void createGroup(){
@@ -44,15 +44,17 @@ public class TeamHelper extends HelperBase {
     }
 
     public void permanentlyDeleteGroup() {
-        click(By.className("quiet-button"));
-        click(By.cssSelector("[type='submit']"));
+        waitForElementLocatedAndclick(By.className("quiet-button"), 20);
+        waitForElementLocatedAndclick(By.cssSelector("[type='submit']"), 20);
     }
 
     public void openFirstGroup() {
-        click(By.cssSelector("[data-test-id='home-team-tab-name']"));
+        waitForElementLocatedAndclick(By.cssSelector("[data-test-id='home-team-tab-name']"), 20);
     }
 
     public void clickSettingsButton() {
-        click(By.xpath("//li[@class='pgEbaAFZBA0N5R']//li[4]//a[1]//span[2]"));
+        waitForElementLocatedAndclick(By.xpath("//li[@class='pgEbaAFZBA0N5R']//li[4]//a[1]//span[2]"), 20);
     }
+
+
 }

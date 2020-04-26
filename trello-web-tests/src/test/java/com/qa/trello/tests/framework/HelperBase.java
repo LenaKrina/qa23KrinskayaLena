@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperBase {
     WebDriver wd;
-    WebDriverWait wait;
 
     public HelperBase(WebDriver wd) {
         this.wd = wd;
@@ -18,20 +17,23 @@ public class HelperBase {
     }
 
     public void type(By locator, String text) {
-        click(locator);
+        waitForElementLocatedAndclick(locator, 30);
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
+    public void waitForElementLocatedAndclick(By locator, int timeOut) {
+        new WebDriverWait(wd, timeOut).until(ExpectedConditions.presenceOfElementLocated(locator)).click();
+    }
 
-    public void click(By locator) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator)).click();
+    public void waitForElementClickableAndclick(By locator, int timeOut) {
+        new WebDriverWait(wd, timeOut).until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     public void confirm() {
-        click(By.cssSelector(".js-confirm"));
+        waitForElementLocatedAndclick(By.cssSelector(".js-confirm"), 20);
     }
 
     public void returnToHomePage() {
-        click(By.cssSelector("[name='house']"));
+        waitForElementClickableAndclick(By.cssSelector("[name='house']"), 20);
     }
 }

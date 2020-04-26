@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 
 public class BoardModificationTests extends TestBase {
     @BeforeMethod
-    public void ensurePreconditions(){
-        if(app.isOnBoardsPage()){
-            app.getBoard().click(By.cssSelector("[href$=boards]"));
+    public void ensurePreconditions() throws InterruptedException {
+        if(!app.isOnBoardsPage()){
+            app.getBoard().goToBoardsPageURL("lena01228137");
         }
         if (app.getBoard().getBoardsCount() == 0){
             app.getBoard().createBoard();
@@ -19,7 +19,7 @@ public class BoardModificationTests extends TestBase {
     public void testRenameBoard(){
         app.getBoard().openFirstPersonalBoard();
         app.getBoard().renameBoard();
-        app.getBoard().returnToHomePage();
+       // app.getBoard().returnToHomePage();
 
     }
 
