@@ -19,8 +19,7 @@ public class ApplicationManager {
     }
 
 
-    public void init() {
-        String browser=null;
+    public void init() throws InterruptedException {
         if(browser.equals(BrowserType.CHROME)){
             wd = new ChromeDriver();
         } if(browser.equals(BrowserType.FIREFOX)){
@@ -34,6 +33,7 @@ public class ApplicationManager {
 
         session = new SessionHelper(wd);
         session.login("krinskaya@gmail.com", "Krina123");
+        Thread.sleep(3000);
 
         board = new BoardHelper(wd);
         team = new TeamHelper(wd);

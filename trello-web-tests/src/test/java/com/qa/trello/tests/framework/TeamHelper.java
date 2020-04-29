@@ -1,6 +1,6 @@
 package com.qa.trello.tests.framework;
 
-import com.qa.trello.tests.framework.HelperBase;
+import com.qa.trello.model.Team;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,12 +10,12 @@ public class TeamHelper extends HelperBase {
         super(wd);
     }
 
-    public void fillGroupForm(String groupName, String groupDescription) throws InterruptedException {
-        type(By.cssSelector("[data-test-id=header-create-team-name-input]"), groupName);
+    public void fillGroupForm(Team teamData) throws InterruptedException {
+        type(By.cssSelector("[data-test-id=header-create-team-name-input]"), teamData.getGroupName());
         waitForElementLocatedAndclick(By.cssSelector("[id='teamTypeSelect']"), 20);
         Thread.sleep(2000);
         waitForElementLocatedAndclick(By.cssSelector("[data-test-id^=header-create-team-type] li"), 20);
-        type(By.cssSelector("[id$='create-team-org-description']"), groupDescription);
+        type(By.cssSelector("[id$='create-team-org-description']"), teamData.getGroupDescription());
     }
 
     public void inviteTeamLater() {

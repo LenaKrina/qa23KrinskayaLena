@@ -1,5 +1,6 @@
 package com.qa.trello.tests.framework;
 
+import com.qa.trello.model.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,14 @@ public class BoardHelper extends HelperBase {
         waitForElementLocatedAndclick(By.cssSelector("[type='button']"), 20);
     }
 
-    public void fillBoardForm(String boardName) {
-        type(By.className("_23NUW98LaZfBpQ"), boardName);
-        waitForElementLocatedAndclick(By.cssSelector("button.W6rMLOx8U0MrPx"), 20);
-        waitForElementLocatedAndclick(By.xpath("//li[1]/button[@class='_2jR0BZMM5cBReR']"), 20);
+    public void fillBoardForm(Board board) {
+        type(By.className("_23NUW98LaZfBpQ"), board.getName());
+        selectTeamFromBoardCreationForm(board.getTeam());
+    }
 
+    public void selectTeamFromBoardCreationForm(String team) {
+        waitForElementLocatedAndclick(By.cssSelector("button.W6rMLOx8U0MrPx"), 20);
+        waitForElementLocatedAndclick(By.xpath("//span[contains(text(), '"+ team +"')]"), 20);
     }
 
     public void initBoardCreation() {
@@ -56,7 +60,7 @@ public class BoardHelper extends HelperBase {
 
     public void createBoard(){
         initBoardCreation();
-        fillBoardForm("new board Lena");
+        fillBoardForm(new Board().withName("new board").withTeam("No team"));
         confirmBoardForm();
         returnToHomePage();
     }
