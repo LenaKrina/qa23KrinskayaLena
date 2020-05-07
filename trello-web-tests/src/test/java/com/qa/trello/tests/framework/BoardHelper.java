@@ -21,8 +21,10 @@ public class BoardHelper extends HelperBase {
     }
 
     public void selectTeamFromBoardCreationForm(String team) {
-        waitForElementLocatedAndclick(By.cssSelector("button.W6rMLOx8U0MrPx"), 20);
-        waitForElementLocatedAndclick(By.xpath("//span[contains(text(), '"+ team +"')]"), 20);
+        if(team != null) {
+            waitForElementLocatedAndclick(By.cssSelector("button.W6rMLOx8U0MrPx"), 20);
+            waitForElementLocatedAndclick(By.xpath("//span[contains(text(), '" + team + "')]"), 20);
+        }
     }
 
     public void initBoardCreation() {

@@ -17,10 +17,16 @@ public class HelperBase {
     }
 
     public void type(By locator, String text) {
-        waitForElementLocatedAndclick(locator, 30);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        if(text != null) {
+            waitForElementLocatedAndclick(locator, 30);
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
+        }
     }
+    public void click(By locator){
+        wd.findElement(locator).click();
+    }
+
     public void waitForElementLocatedAndclick(By locator, int timeOut) {
         new WebDriverWait(wd, timeOut).until(ExpectedConditions.presenceOfElementLocated(locator)).click();
     }
