@@ -33,12 +33,9 @@ public class ProfileHelper extends HelperBase {
     }
 
     public void uploadPhoto() throws InterruptedException {
-        attachFile(By.cssSelector("[class='_34zIcoaCeL1FsG']"), new File("C:\\Users\\Elena\\Documents\\GitHub\\qa23KrinskayaLena\\trello-web-tests\\src\\test\\resources\\HZ-iuRMf.png"));
+        attachFile(By.cssSelector("[name=file]"), new File("C:\\Users\\Elena\\Documents\\GitHub\\qa23KrinskayaLena\\trello-web-tests\\src\\test\\resources\\HZ-iuRMf.png"));
         Thread.sleep(4000);
 
     }
 
-   // public boolean avatarAdded() {
-   //     return isElementPresent(By.xpath("//*[contains(text(), 'Avatar added)]"));
-   // }
 }

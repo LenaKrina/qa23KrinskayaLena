@@ -13,7 +13,6 @@ public class ProfileModificationTests extends TestBase {
         app.getProfile().initChangeProfilePhoto();
         app.getProfile().uploadPhoto();
         app.getProfile().returnToHomePage();
-       // Assert.assertTrue(app.getProfile().avatarAdded());
 
     }
 
