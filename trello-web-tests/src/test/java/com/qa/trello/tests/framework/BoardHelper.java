@@ -21,9 +21,9 @@ public class BoardHelper extends HelperBase {
     }
 
     public void selectTeamFromBoardCreationForm(String team) {
-        if(team != null) {
-            waitForElementLocatedAndclick(By.cssSelector("button.W6rMLOx8U0MrPx"), 20);
-            waitForElementLocatedAndclick(By.xpath("//span[contains(text(), '" + team + "')]"), 20);
+        if(team != null){
+            click(By.cssSelector("button.W6rMLOx8U0MrPx"));
+            click(By.xpath("//span[contains(text(), '" + team + "')]"));
         }
     }
 

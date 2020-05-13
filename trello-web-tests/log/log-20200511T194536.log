@@ -1,0 +1,22 @@
+19:46:04.755 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [com.qa.trello.model.Board@3370f42]
+19:46:41.893 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:46:41.893 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [com.qa.trello.model.Board@64a40280]
+19:46:47.109 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:46:47.109 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [com.qa.trello.model.Board@72437d8d]
+19:46:52.310 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:46:52.310 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [aaaaaaa, No team]
+19:46:57.442 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:46:57.442 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [h, No team]
+19:47:02.644 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:47:02.644 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [djsdhfksdhfksdhfksd - dfksjdfksjd, No team]
+19:47:07.778 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:47:07.778 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardDeletion  with parameters: []
+19:47:12.971 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardDeletion
+19:47:12.971 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testRenameBoard  with parameters: []
+19:47:18.105 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testRenameBoard
+19:47:18.105 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testGroupCreation  with parameters: []
+19:47:23.343 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testGroupCreation
+19:47:23.343 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testGroupDeletion  with parameters: []
+19:47:28.561 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testGroupDeletion
+19:47:28.561 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testChangeProfileAvatar  with parameters: []
+19:47:30.403 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testChangeProfileAvatar

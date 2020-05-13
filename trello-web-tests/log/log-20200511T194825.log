@@ -1,0 +1,12 @@
+19:48:47.657 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [com.qa.trello.model.Board@5e3d57c7]
+19:49:24.089 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:49:24.089 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [com.qa.trello.model.Board@49ff7d8c]
+19:50:10.985 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:50:10.985 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [com.qa.trello.model.Board@e54303]
+19:50:16.201 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:50:16.207 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [aaaaaaa, No team]
+19:50:21.339 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:50:21.339 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [h, No team]
+19:50:26.559 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation
+19:50:26.559 [main] INFO  com.qa.trello.tests.tests.TestBase - Start test testBoardCreation  with parameters: [djsdhfksdhfksdhfksd - dfksjdfksjd, No team]
+19:50:31.745 [main] INFO  com.qa.trello.tests.tests.TestBase - Stop test testBoardCreation

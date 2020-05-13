@@ -46,20 +46,20 @@ public class BoardCreationTests extends TestBase {
     }
 
 
-    @Test(dataProvider = "validBoardsEasy")
-    public void testBoardCreation(String boardName, String boardTeam) {
-        Board board = new Board().withName(boardName).withTeam(boardTeam);
+   // @Test(dataProvider = "validBoardsEasy")
+ //   public void testBoardCreation(String boardName, String boardTeam) {
+ //       Board board = new Board().withName(boardName).withTeam(boardTeam);
 
-        int before = app.getBoard().getBoardsCount();
-        app.getBoard().initBoardCreation();
-        app.getBoard().fillBoardForm(board);
-        app.getBoard().confirmBoardForm();
-        app.getBoard().returnToHomePage();
-       int after = app.getBoard().getBoardsCount();
+ //       int before = app.getBoard().getBoardsCount();
+  //      app.getBoard().initBoardCreation();
+  //      app.getBoard().fillBoardForm(board);
+  //      app.getBoard().confirmBoardForm();
+  //      app.getBoard().returnToHomePage();
+  //     int after = app.getBoard().getBoardsCount();
 
-        System.out.println("was: " + before + " now: " + after);
-        Assert.assertEquals(after, before+1);
-    }
+  //      System.out.println("was: " + before + " now: " + after);
+   //     Assert.assertEquals(after, before+1);
+  //  }
 
     @Test(dataProvider = "validBoards")
     public void testBoardCreation(Board board) {
